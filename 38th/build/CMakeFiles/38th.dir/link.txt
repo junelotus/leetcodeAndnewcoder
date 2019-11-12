@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/38th.dir/38th.cpp.o  -o 38th 
