@@ -1,0 +1,100 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+
+bool fun(map<int,int> o,int t,int zushu)
+{
+    if(++o[t]>4) return false;
+
+int a= 3;
+return find(o,o.begin()->first,a);
+
+
+
+
+
+}
+
+
+bool findTwo(map<int,int> o)
+{
+     int counter=0;
+    map<int,int>::iterator it =o.begin();
+    while(it!=o.end())
+     {
+         if(it->second==1)
+          counter++;
+          if(counter>2) return false;
+     it++;
+     }
+
+     if(counter==2) return true;
+     return false;
+}
+
+bool find(map<int,int> o,int k,int zushu)
+{
+
+if(zushu==0) 
+  return  findTwo( o);
+ 
+while(k<=9 && o[k]==0) k++;
+
+if(k>9) return false;
+
+
+bool f1 =false;
+bool f2= false;
+bool f3= false;
+if(o[k]>=3)
+{
+o[k]-=3;
+f1 = find(  o,  k+1,zushu-1);
+}
+
+if(o[k]-1>=0 &&o[k+1]>=1 &&o[k+2]>=1)
+{
+f2= find(  o,  k+1,zushu-1);
+
+}
+
+f3 =find(  o,  k+2,zushu-1);
+
+return f1||f2||f3;
+
+
+}
+
+int main()
+{
+    int i=0;
+    bool flag =true;
+    while(cin.get())
+    {
+        map<int,int> o;
+    while(i++<13)
+    {
+        
+        o[i]++;
+    }
+
+     for(int i=1;i<10;i++)
+      {
+          if(fun(  o,  i,  3))
+          {
+               
+                 cout<<i<<endl;
+                 flag =false;
+          }
+      }
+
+
+    if(flag )  cout<<0<<endl;
+    flag =true;
+    }
+
+return 0;
+
+}
+

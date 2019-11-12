@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+// https://www.nowcoder.com/questionTerminal/c167db5218e54ef2870aebe5b14743f2?orderByHotValue=1&questionTypes=000100&mutiTagIds=592&page=5&onlyReference=false
+int main()
+{
+    int n;
+    cin>>n;
+    vector<long long> re(n+1,0);
+    for(int i=0;i<n;i++)
+        cin>>re[i+1];
+    std::sort(re.begin(),re.end());
+    vector<long long> ree(n+1,1);
+    int bei = 0;
+    int i=1;
+    int j=1;
+    while(i<=n)
+    {
+//         if(re[i]==re[j]){
+//             while(i<=n && re[i]==re[j])
+//                 i++;
+//             if(i==1+n) i=n;
+//             for(int t=j;t<=i;t++)
+//                 {
+//                     ree[i]-=bei+(t-j);
+
+//                 }
+//             bei=re[j];        
+//         }
+// else
+ {
+
+    ree[i]= re[i]-re[i-1]+ree[i-1]-1;
+    if(ree[i]>INT_MAX)
+     ree[i]%=1000000007;
+    //bei = ree[i];
+    i++;
+}
+
+    }
+
+long long counter =1;
+    for(int i=1;i<=n;i++)
+    {counter*=ree[i];
+    if(counter>INT_MAX)
+    counter%=1000000007;
+    }
+    cout<<counter<<endl;
+    return 0;
+
+
+
+
+}

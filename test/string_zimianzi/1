@@ -1,0 +1,11 @@
+#include <iostream>
+#include <vector>
+#include  <string>
+int mian()
+{
+string a ="wode";
+string b ="nide"+a;
+//string c = "nide"+"wode";
+return 0
+
+}

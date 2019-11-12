@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class A{
+public:
+voidset(){int t =0;}
+private:
+int * a =NULL;
+
+};
+
+int main()
+{
+A test;
+int* d = test->a;
+A::set();
+return 0;
+}
